@@ -18,7 +18,7 @@ public class Client {
         try {
             socket = new Socket();
             socket.connect(address);
-            
+
             // 注意获取流的顺序要和服务端相反
             output = new ObjectOutputStream(socket.getOutputStream());
             output.writeUTF("xiaoxixi");
