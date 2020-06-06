@@ -7,19 +7,19 @@ public class SerializableTest {
     private static final String SERIALIZABLE_FILE_PATH = "/user.txt";
 
     public static void main(String[] args) {
-        User user = new User();
-        user.setUserId(20L);
-        user.setUserName("hello, world");
-        user.setPwd("123456789");
+        SerializableSimpleVO serializableSimpleVO = new SerializableSimpleVO();
+        serializableSimpleVO.setUserId(20L);
+        serializableSimpleVO.setUserName("hello, world");
+        serializableSimpleVO.setPwd("123456789");
         //serializable(user);
         deSerializable();
     }
 
-    public static void serializable(User user) {
+    public static void serializable(SerializableSimpleVO serializableSimpleVO) {
         ObjectOutputStream output = null;
         try {
             output = new ObjectOutputStream(new FileOutputStream(SERIALIZABLE_FILE_PATH));
-            output.writeObject(user);
+            output.writeObject(serializableSimpleVO);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -37,8 +37,8 @@ public class SerializableTest {
         try{
             File file = new File(SERIALIZABLE_FILE_PATH);
             input = new ObjectInputStream(new FileInputStream(file));
-            User user = (User)input.readObject();
-            System.out.println(user.toString());
+            SerializableSimpleVO serializableSimpleVO = (SerializableSimpleVO)input.readObject();
+            System.out.println(serializableSimpleVO.toString());
         }catch (Exception ex) {
             ex.printStackTrace();
         }finally {

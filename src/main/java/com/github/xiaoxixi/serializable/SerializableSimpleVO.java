@@ -7,7 +7,7 @@ import java.io.Serializable;
 
 @Getter
 @Setter
-public class User implements Serializable {
+public class SerializableSimpleVO implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
