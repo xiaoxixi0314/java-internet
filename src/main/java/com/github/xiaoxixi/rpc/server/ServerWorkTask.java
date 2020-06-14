@@ -36,8 +36,7 @@ public class ServerWorkTask implements Runnable {
             Class service = RpcServerFrame.REGISTER_CONTAINER.get(serviceName);
             Object result = null;
             if (service == null) {
-                System.out.println("service " + serviceName + " not exists!!!");
-                return;
+                throw new ClassNotFoundException(serviceName + "not found");
             }
 
             // 执行本地方法
@@ -67,7 +66,7 @@ public class ServerWorkTask implements Runnable {
         }
     }
 
-    private Object invoke(Class service, String methodName, Class<?>[] paramTypes, Object args){
+    private Object invoke(Class service, String methodName, Class<?>[] paramTypes, Object[] args){
         try {
             Object instance = service.newInstance();
             Method method = service.getMethod(methodName, paramTypes);

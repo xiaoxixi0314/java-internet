@@ -8,6 +8,7 @@ import com.github.xiaoxixi.rpc.service.pojo.UserQuery;
 
 import java.util.List;
 
+
 public class Test {
 
 
@@ -16,7 +17,7 @@ public class Test {
         UserService remote = RpcClientFrame.getRemoteService(UserService.class);
         UserQuery query = new UserQuery();
         query.setUserId(2L);
-        query.setUserName("hello, rpc");
+        query.setUserName("hello");
         List<User> users = remote.queryUser(query);
         System.out.println(JSON.toJSONString(users));
 
